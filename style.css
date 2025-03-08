@@ -1,6 +1,4 @@
-/* style.css */
 
-/* Estilo geral para o corpo da página */
 
 
 /* Estilo para o título */
@@ -33,11 +31,12 @@ button:hover {
 
 /* Estilo para a tabela */
 table {
-    width: 80%;
+    width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
 }
 
 /* Estilo para o cabeçalho da tabela */
@@ -50,7 +49,7 @@ th {
 
 /* Estilo para as células da tabela */
 td {
-    padding: 5px;
+    padding: 8px;
     text-align: left;
     border: 1px solid #ddd;
 }
@@ -63,4 +62,54 @@ tr:nth-child(even) {
 /* Estilo para a linha ao passar o mouse */
 tr:hover {
     background-color: #f1f1f1;
+}
+
+/* Adicionando responsividade */
+@media (max-width: 768px) {
+    /* Ajusta a largura da tabela em telas pequenas */
+    table {
+        width: 100%;
+        overflow-x: auto;
+        display: block;
+        white-space: nowrap;
+    }
+
+    /* Estilo para o cabeçalho da tabela */
+    th, td {
+        padding: 12px 8px;
+        font-size: 14px;
+    }
+
+    /* Ajuste de largura das colunas */
+    th {
+        background-color: #007bff;
+        color: white;
+        text-align: center;
+    }
+
+    /* Ajusta o espaçamento do campo de input e botão */
+    input, button {
+        width: 100%;
+        padding: 12px;
+    }
+
+    /* Modificar o layout do título */
+    h1 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+}
+
+/* Para dispositivos móveis muito pequenos */
+@media (max-width: 480px) {
+    /* Ajusta a fonte das células e cabeçalhos */
+    th, td {
+        font-size: 12px;
+        padding: 8px 5px;
+    }
+
+    /* Ajuste de tamanho da tabela */
+    table {
+        font-size: 14px;
+    }
 }
