@@ -4,17 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mostrar Tabela Excel com Filtro</title>
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
 </head>
 <body>
-    <h1>Tabela do Excel com Filtro</h1>
+
+    <h1>Lista de items</h1>
 
     <!-- Campo de input para o filtro -->
-    <input type="text" id="filtro" placeholder="Digite um valor para buscar">
-    <button onclick="filtrarTabela()">Filtrar</button>
-    
+     <div class="pesquisar_item">
+        <input type="text" id="filtro" placeholder="Digite um valor para buscar">
+        <button onclick="filtrarTabela()">Filtrar</button>
+    </div>
     <!-- Área para mostrar a tabela -->
-    <div id="tabela-container"></div>
+    <div id="tabela-container" class="tabela"></div>
 
     <script src="script.js"></script>
 </body>

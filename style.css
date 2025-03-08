@@ -1,56 +1,66 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
+/* style.css */
 
-.container {
-    max-width: 1000px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
+/* Estilo geral para o corpo da página */
 
+
+/* Estilo para o título */
 h1 {
-    text-align: center;
     color: #333;
-}
-
-input[type="text"] {
-    width: 100%;
-    padding: 10px;
+    font-size: 24px;
     margin-bottom: 20px;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
 }
 
+/* Estilo para o campo de input e botão */
+input, button {
+    padding: 10px;
+    font-size: 16px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Estilo para o botão */
+button {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para a tabela */
 table {
-    width: 100%;
+    width: 80%;
     border-collapse: collapse;
     margin-top: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-table, th, td {
-    border: 1px solid #ddd;
-}
-
-th, td {
+/* Estilo para o cabeçalho da tabela */
+th {
+    background-color: #007bff;
+    color: white;
     padding: 10px;
     text-align: left;
 }
 
-th {
+/* Estilo para as células da tabela */
+td {
+    padding: 5px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+/* Estilo para as linhas alternadas */
+tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
+/* Estilo para a linha ao passar o mouse */
 tr:hover {
     background-color: #f1f1f1;
 }
