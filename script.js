@@ -1,5 +1,6 @@
 let tabelaData = []; // Armazenará os dados da tabela (em formato JSON)
 let cabecalhoTabela = []; // Armazenará o cabeçalho da tabela (primeira linha)
+let pop_up = document.getElementById('pop_up');
 
 window.onload = function() {
     // Caminho para o arquivo Excel
@@ -77,16 +78,54 @@ function gerarTabela(data) {
     container.appendChild(tabela);
 }
 
-// Função para filtrar a tabela com base no valor do input
-function filtrarTabela() {
-    const filtro = document.getElementById('filtro').value.toLowerCase();
+function abrir_pop_up(){
+    pop_up.style.display = "block";
+}
 
-    // Filtra os dados da tabela com base no valor digitado
-    const dadosFiltrados = tabelaData.filter(linha => {
-        // Verifica se algum valor na linha contém o filtro
-        return linha.some(celula => celula.toString().toLowerCase().includes(filtro));
-    });
+function fechar_pop_up(){
+    pop_up.style.display = "none";
+}
 
-    // Exibe a tabela filtrada
-    gerarTabela(dadosFiltrados);
+// Função para adicionar uma nova linha à tabela e salvar no Excel
+function adicionar_item() {
+    // Pega os valores dos inputs (substitua com os IDs reais dos inputs)
+    const codigo = document.getElementById('adicionar_codigo').value;
+    const descricao = document.getElementById('adicionar_descricao').value;
+    const marca = document.getElementById('adicionar_marca').value;
+    const quantidade = document.getElementById('adicionar_quantidade').value;
+    const local = document.getElementById('adicionar_local').value;
+
+    // Verifica se ambos os campos foram preenchidos
+    if (codigo && descricao && marca && quantidade && local) {
+        // Adiciona uma nova linha ao array de dados
+        tabelaData.push([codigo, descricao, marca, quantidade, local]);
+
+        gerarExcel();
+        // Atualiza a tabela na página
+        gerarTabela(tabelaData);
+
+        // Limpa os campos de input
+        document.getElementById('adicionar_codigo').value = '';
+        document.getElementById('adicionar_descricao').value = '';
+        document.getElementById('adicionar_marca').value = '';
+        document.getElementById('adicionar_quantidade').value = '';
+        document.getElementById('adicionar_local').value = '';
+    } else {
+        alert("Por favor, preencha todos os campos!");
+    }
+}
+
+// Função para gerar e baixar o novo arquivo Excel com a nova linha
+function gerarExcel() {
+    // Cria uma nova planilha com os dados atualizados
+    const wb = XLSX.utils.book_new();
+
+    // Converte os dados da tabela para o formato adequado
+    const ws = XLSX.utils.aoa_to_sheet([cabecalhoTabela, ...tabelaData]);
+
+    // Adiciona a planilha ao livro
+    XLSX.utils.book_append_sheet(wb, ws, 'Dados');
+
+    // Gera o arquivo Excel e permite o download
+    XLSX.writeFile(wb, 'Localização_atualizado.xlsx');  // Aqui você pode usar o nome desejado
 }

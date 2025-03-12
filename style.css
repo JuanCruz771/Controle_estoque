@@ -18,7 +18,14 @@ input, button {
 }
 
 /* Estilo para o botão */
-button {
+.btn_filtrar{
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn_adicionar{
     background-color: #007bff;
     color: white;
     cursor: pointer;
@@ -49,8 +56,9 @@ th {
 
 /* Estilo para as células da tabela */
 td {
-    padding: 8px;
+    
     text-align: left;
+    font-size: 12px;
     border: 1px solid #ddd;
 }
 
@@ -64,52 +72,30 @@ tr:hover {
     background-color: #f1f1f1;
 }
 
-/* Adicionando responsividade */
-@media (max-width: 768px) {
-    /* Ajusta a largura da tabela em telas pequenas */
-    table {
-        width: 100%;
-        overflow-x: auto;
-        display: block;
-        white-space: nowrap;
-    }
-
-    /* Estilo para o cabeçalho da tabela */
-    th, td {
-        padding: 12px 8px;
-        font-size: 14px;
-    }
-
-    /* Ajuste de largura das colunas */
-    th {
-        background-color: #007bff;
-        color: white;
-        text-align: center;
-    }
-
-    /* Ajusta o espaçamento do campo de input e botão */
-    input, button {
-        width: 100%;
-        padding: 12px;
-    }
-
-    /* Modificar o layout do título */
-    h1 {
-        font-size: 20px;
-        margin-bottom: 10px;
-    }
+.pop_up{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
-/* Para dispositivos móveis muito pequenos */
-@media (max-width: 480px) {
-    /* Ajusta a fonte das células e cabeçalhos */
-    th, td {
-        font-size: 12px;
-        padding: 8px 5px;
-    }
-
-    /* Ajuste de tamanho da tabela */
-    table {
-        font-size: 14px;
-    }
+.pop_up_conteudo{
+    background-color: #fff;
+    margin-left: 3%;
+    margin-top: 25%;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 55%;
+    text-align: center;
 }
+.btn_fechar{
+    
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
