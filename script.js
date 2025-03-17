@@ -129,3 +129,23 @@ function gerarExcel() {
     // Gera o arquivo Excel e permite o download
     XLSX.writeFile(wb, 'Localização_atualizado.xlsx');  // Aqui você pode usar o nome desejado
 }
+
+const API_URL = "https://api_palusa.railway.internal/Estoque"; // Troque pelo URL real
+
+// Buscar usuários
+fetch(API_URL)
+  .then(response => response.json())
+  .then(data => console.log("Estoque", data))
+  .catch(error => console.error("Erro ao buscar usuários:", error));
+
+// Criar um novo usuário
+fetch(API_URL, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({ codigo: "João", descricao: "joao@email.com" })
+})
+.then(response => response.json())
+.then(data => console.log("item criado:", data))
+.catch(error => console.error("Erro ao criar usuário:", error));
