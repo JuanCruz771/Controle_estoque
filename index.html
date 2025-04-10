@@ -10,8 +10,8 @@
 <body>
 
     <h1>Lista de items</h1>
-
-    <button class="btn_adicionar" onclick="abrir_pop_up()">Adicionar item</button>
+  
+    <button class="btn_adicionar" onclick="">Adicionar item</button>
 
     <div class="pop_up" id="pop_up">
         <div class="pop_up_conteudo">
@@ -43,9 +43,21 @@
         <input type="text" id="filtro" placeholder="Digite um valor para buscar">
         <button id="btn_filtrar" class="btn_filtrar" onclick="filtrarTabela()">Filtrar</button>
     </div>
-    <!-- Área para mostrar a tabela -->
-    <div id="tabela-container" class="tabela"></div>
 
-    <script src="script.js"></script>
+    <div class="tabela">
+        <div class="tabela_cabecalho">
+            <h2 class="tabela-container_titulo">ID</h2>
+            <h2 class="tabela-container_titulo">Código</h2>
+            <h2 class="tabela-container_titulo">Descrição</h2>
+            <h2 class="tabela-container_titulo">Marca</h2>
+            <h2 class="tabela-container_titulo">Quantidade</h2>
+            <h2 class="tabela-container_titulo">Local</h2>
+        </div>
+        <!-- Área para mostrar a tabela -->
+        <list id="tabela-container" class="tabela_conteudo">
+        
+    </div>
+
+    <script src="script.js" defer></script>
 </body>
 </html>

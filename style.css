@@ -37,39 +37,40 @@ button:hover {
 }
 
 /* Estilo para a tabela */
-table {
+.tabela {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin-top: 5%;
+    padding: 0%;
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow-x: auto;
 }
 
-/* Estilo para o cabeçalho da tabela */
-th {
-    background-color: #007bff;
-    color: white;
-    padding: 10px;
-    text-align: left;
-}
-
-/* Estilo para as células da tabela */
-td {
+.tabela_conteudo{
     
-    text-align: left;
+    width: 100%;
+}
+
+a{
+    display: flex;
+}
+ul{
+    padding: 1%;
+    margin: 5%;
+}
+.tabela_cabecalho{
+    display: flex;
+    flex-direction: row;
     font-size: 12px;
-    border: 1px solid #ddd;
+    padding: 0%;
+    margin: 0%;
+    border: 0%;   
 }
 
-/* Estilo para as linhas alternadas */
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-/* Estilo para a linha ao passar o mouse */
-tr:hover {
-    background-color: #f1f1f1;
+.tabela-container_titulo{
+    padding: 2%;
+    margin: 0%;
 }
 
 .pop_up{
