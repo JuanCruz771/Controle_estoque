@@ -1,6 +1,7 @@
 const apiUrl = 'https://api-estoque-palusa.onrender.com/API/Estoque';
 const pop = document.getElementById('pop_up');
 const i = 0;
+let validacao;
 
 function abrir_pop_up(){
   
@@ -18,54 +19,60 @@ function filtrar() {
   });
 }
 
-window.adicionar_item = async function (){
-
+window.adicionar_item = async function () {
   document.getElementById('formCadastro').addEventListener('submit', async function (event) {
     event.preventDefault(); // Impede o reload
-  
+    const btn_adicionar = document.getElementById(btn_adicionar);
+    btn_adicionar.style.visibility = 'hidden';
     const codigo = document.getElementById("codigo").value;
-const descricao = document.getElementById("descricao").value;
-const marca = document.getElementById("marca").value;
-const quantidade = document.getElementById("quantidade").value;
-const local = document.getElementById("local").value;
+    const descricao = document.getElementById("descricao").value;
+    const marca = document.getElementById("marca").value;
+    const quantidade = document.getElementById("quantidade").value;
+    const local = document.getElementById("local").value;
 
-const novoProduto = {
-  codigo,
-  descricao,
-  marca,
-  quantidade,
-  local
-};
-   
-  
+    let quant_int = parseInt(quantidade);
+
+    if (isNaN(quant_int)) {
+      alert('Essa quantidade não é válida');
+      return; // Interrompe o envio se quantidade inválida
+      btn_adicionar.style.visibility = 'visible';
+    }
+
+    const novoProduto = {
+      codigo,
+      descricao,
+      marca,
+      quantidade, // usa o valor convertido
+      local
+    };
+
     try {
       const resposta = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(novoProduto )
+        body: JSON.stringify(novoProduto)
       });
-  
+
       if (!resposta.ok) {
         throw new Error(`Erro ao salvar produto: ${resposta.status}`);
       }
-  
+
       alert('Produto cadastrado com sucesso!');
-      document.getElementById('formProduto').reset();
+      document.getElementById('formCadastro').reset();
       document.getElementById('pop_up').style.display = 'none';
-  
+
       // Atualiza a lista
       carregarProdutos();
-  
+
     } catch (erro) {
       console.error('Erro ao enviar produto:', erro);
       alert('Erro ao salvar produto. Veja o console.');
     }
   });
-  
-
-} 
+}
+ 
 
 window.carregarProdutos = async function (filtro = '') {
   
