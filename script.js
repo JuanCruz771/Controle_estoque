@@ -131,7 +131,7 @@ window.carregarProdutos = async function (filtro = '') {
         btn_alterar.classList = 'btn_alterar';
         btn_alterar.textContent = 'alterar';
         btn_alterar.addEventListener('click', function() {
-          alterarlocal(item_local.id); // ou outro identificador desejado
+          alterarlocal(btn_alterar.id); 
         });
         
         
@@ -160,7 +160,7 @@ function alterarlocal(valor){
     i++
     qual_local = 'item_local' + i;
     qual_botao = 'btn_alterar' + i;
-      if(valor == qual_local){
+      if(valor == qual_botao){
         
         repetir = false;
         
@@ -169,7 +169,14 @@ function alterarlocal(valor){
         
         
         const botao_alterar = document.getElementById(qual_botao);
+        
         const btn_alterar = botao_alterar.cloneNode(true);
+        btn_alterar.id = 'btn_alterar' + i;
+        btn_alterar.classList = 'btn_alterar';
+        btn_alterar.addEventListener('click', function() {
+          alterarlocal(btn_alterar.id);
+        })
+          
 
         const input_local = document.createElement('input');
         input_local.type = 'text';
@@ -187,6 +194,7 @@ function alterarlocal(valor){
           local_antigo.textContent = input_local.value;
           input_local.replaceWith(local_antigo);
           btn_ok.replaceWith(btn_alterar);
+          salvar_banco();
           
         });
         
@@ -194,6 +202,10 @@ function alterarlocal(valor){
         i=0;
       }
     }
+    
+  }
+
+  function salvar_banco(qual_local){
     
   }
 
