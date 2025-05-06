@@ -1,6 +1,6 @@
 const apiUrl = 'https://api-estoque-palusa.onrender.com/API/Estoque';
 const pop = document.getElementById('pop_up');
-
+const i = 0;
 
 function abrir_pop_up(){
   
@@ -68,6 +68,7 @@ const novoProduto = {
 } 
 
 window.carregarProdutos = async function (filtro = '') {
+  
   try {
     const resposta = await fetch(apiUrl);
     if (!resposta.ok) {
@@ -88,27 +89,59 @@ window.carregarProdutos = async function (filtro = '') {
         produto.local.toLowerCase().includes(filtroLower)
       )
       .forEach(produto => {
-        const linha = document.createElement('a');
+        
+        
+
+        const linha = document.createElement('a');  
+        linha.classList = 'linha';
 
         const item_id = document.createElement('ul');
-        const item_codigo = document.createElement('ul');
-        const item_descricao = document.createElement('ul');
-        const item_marca = document.createElement('ul');
-        const item_quantidade = document.createElement('ul');
-        const item_local = document.createElement('ul');
-
         item_id.textContent = `${produto.id}`;
-        item_codigo.textContent = `${produto.codigo}`;
-        item_descricao.textContent = `${produto.descricao}`;
-        item_marca.textContent = `${produto.marca}`;
-        item_quantidade.textContent = `${produto.quantidade}`;
-        item_local.textContent = `${produto.local}`;
+        item_id.id = 'item_id'+ item_id.textContent;
+        item_id.classList = 'item_id';
+        linha.id = 'linha' + item_id.textContent;
 
+        const item_codigo = document.createElement('ul');
+        item_codigo.textContent = `${produto.codigo}`;
+        item_codigo.id = 'item_codigo' + item_id.textContent;
+        item_codigo.classList = 'item_codigo';
+
+        const item_descricao = document.createElement('ul');
+        item_descricao.textContent = `${produto.descricao}`;
+        item_descricao.id = 'item_descricao' + item_id.textContent;
+        item_descricao.classList = 'item_descricao';
+
+        const item_marca = document.createElement('ul');
+        item_marca.textContent = `${produto.marca}`;
+        item_marca.id = 'item_marca' + item_id.textContent;
+        item_marca.classList = 'item_marca';
+
+        const item_quantidade = document.createElement('ul');
+        item_quantidade.textContent = `${produto.quantidade}`;
+        item_quantidade.id = 'item_quantidade' + item_id.textContent;
+        item_quantidade.classList = 'item_quantidade';
+
+        const item_local = document.createElement('ul');
+        item_local.textContent = `${produto.local}`;
+        item_local.id = 'item_local' + item_id.textContent;
+        item_local.classList = 'item_local';
+
+        const btn_alterar = document.createElement('button')
+        btn_alterar.id = 'btn_alterar' + item_id.textContent;
+        btn_alterar.classList = 'btn_alterar';
+        btn_alterar.textContent = 'alterar';
+        btn_alterar.addEventListener('click', function() {
+          alterarlocal(item_local.id); // ou outro identificador desejado
+        });
+        
+        
         linha.appendChild(item_id);
-        linha.appendChild(item_codigo);
+        linha.appendChild(item_codigo);  
         linha.appendChild(item_descricao);
+        linha.appendChild(item_marca);
         linha.appendChild(item_quantidade);
         linha.appendChild(item_local);
+        linha.appendChild(btn_alterar);
 
         lista.appendChild(linha);
       });
@@ -117,6 +150,57 @@ window.carregarProdutos = async function (filtro = '') {
     console.error('Erro ao buscar produtos:', erro);
   }
 };
+
+function alterarlocal(valor){
+  let qual_local = 'item_local';
+  let qual_botao = 'btn_alterar';
+  let repetir = true;
+  let i = 0;
+  while(repetir == true){
+    i++
+    qual_local = 'item_local' + i;
+    qual_botao = 'btn_alterar' + i;
+      if(valor == qual_local){
+        
+        repetir = false;
+        
+        
+        const local_antigo = document.getElementById(qual_local);
+        
+        
+        const botao_alterar = document.getElementById(qual_botao);
+        const btn_alterar = botao_alterar.cloneNode(true);
+
+        const input_local = document.createElement('input');
+        input_local.type = 'text';
+        input_local.id = 'input_local';
+        input_local.classList - 'input_local';
+        input_local.placeholder = "Digite aqui";
+        local_antigo.replaceWith(input_local);
+        
+        const btn_ok = document.createElement('button');
+        btn_ok.textContent = 'ok';
+        btn_ok.id = 'btn_ok' + i;
+        btn_ok.classList = 'btn_ok';
+        botao_alterar.replaceWith(btn_ok); 
+        btn_ok.addEventListener('click', function() {
+          local_antigo.textContent = input_local.value;
+          input_local.replaceWith(local_antigo);
+          btn_ok.replaceWith(btn_alterar);
+          
+        });
+        
+
+        i=0;
+      }
+    }
+    
+  }
+
+  
+
+  
+
 
 // Chama a função ao carregar a página
 window.addEventListener("load", () => {
