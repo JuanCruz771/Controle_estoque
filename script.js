@@ -1,6 +1,6 @@
 const apiUrl = 'https://api-estoque-palusa.onrender.com/API/Estoque';
 const pop = document.getElementById('pop_up');
-const i = 0;
+
 let validacao;
 
 function abrir_pop_up(){
@@ -73,6 +73,7 @@ window.adicionar_item = async function () {
   });
 }
  
+
 
 window.carregarProdutos = async function (filtro = '') {
   
@@ -192,16 +193,20 @@ function alterarlocal(valor){
         input_local.placeholder = "Digite aqui";
         local_antigo.replaceWith(input_local);
         
+        const item_id = document.getElementById('item_id' + i);
+        item_id.value = item_id.textContent;
+
         const btn_ok = document.createElement('button');
         btn_ok.textContent = 'ok';
         btn_ok.id = 'btn_ok' + i;
         btn_ok.classList = 'btn_ok';
         botao_alterar.replaceWith(btn_ok); 
         btn_ok.addEventListener('click', function() {
+          
           local_antigo.textContent = input_local.value;
           input_local.replaceWith(local_antigo);
           btn_ok.replaceWith(btn_alterar);
-          salvar_banco();
+          salvar_banco(parseInt(item_id.value) ,input_local.value);
           
         });
         
@@ -212,10 +217,29 @@ function alterarlocal(valor){
     
   }
 
-  function salvar_banco(qual_local){
+  window.salvar_banco = async function (id, novo_local) {
     
-  }
-
+    fetch(apiUrl + '/' + id, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ local: novo_local }) // <- chave "local"
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Erro ao atualizar o local");
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log("Item atualizado:", data);
+    })
+    .catch(error => {
+      console.error("Erro:", error);
+    });
+  };
+  
   
 
   
