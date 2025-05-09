@@ -1,32 +1,40 @@
 
-
-
 /* Estilo para o título */
 h1 {
+    display: flex;
+    justify-content: center;
     color: #333;
     font-size: 24px;
-    margin-bottom: 20px;
+    margin: 10px;
 }
 
-/* Estilo para o campo de input e botão */
-input, button {
-    padding: 10px;
-    font-size: 16px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+/* Estilo da div do botão de filtrar items e do campo de input de pesquisa. */
+.pesquisar_item {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
 }
 
-/* Estilo para o botão */
-.btn_filtrar{
+/* Estilo do botão de filtrar items. */
+.btn_filtrar {
     background-color: #007bff;
+    padding: 10px;
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-.btn_adicionar{
+/* Estilo da div do botão de adicionar items. */
+.btn_add{
+    text-align: center;
+    justify-content: center;  
+    margin: 10px;
+}
+
+/* Estilo do botão de adicionar items. */
+.btn_adicionar {
     background-color: #007bff;
+    padding: 10px;
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -36,32 +44,26 @@ button:hover {
     background-color: #0056b3;
 }
 
-/* Estilo para a tabela */
+/* Estilo para a div da tabela */
 .tabela {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 5%;
-    padding: 0%;
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow-x: auto;
 }
 
 .tabela_conteudo{
-    
+    display: flex;
+    flex-direction: column;
     width: 100%;
 }
 
-a{
-    display: flex;
-}
-ul{
-    padding: 1%;
-    margin: 5%;
-}
 .tabela_cabecalho{
     display: flex;
-    flex-direction: row;
+    justify-content: center;
     font-size: 12px;
     padding: 0%;
     margin: 0%;
@@ -70,8 +72,8 @@ ul{
 
 .tabela-container_titulo{
     padding: 2%;
-    margin: 0%;
 }
+
 
 .btn_alterar{
     display: flex;
@@ -82,8 +84,17 @@ ul{
     height: 10px;
     width: 50px;
     font-size: 10px;
-    
 }
+
+a{
+    display: flex;
+}
+
+ul{
+    padding: 1%;
+    margin: 5%;
+}
+
 
 .pop_up{
     display: none;
