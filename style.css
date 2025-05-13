@@ -89,7 +89,6 @@ button:hover {
     box-sizing: border-box;
     padding: 1% 5%;
     border-collapse: collapse;
-   
     background-color: rgba(187, 191, 247, 0.7);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     
@@ -110,7 +109,6 @@ ul{
     padding: 0%;
     margin: 0%;
     text-align: center;
-
     white-space: nowrap;
     overflow-x: hidden;
     text-overflow: ellipsis;
@@ -120,7 +118,6 @@ ul{
 .tabela_cabecalho{
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-
     margin: 0%;
     border: 0%;   
 }
@@ -130,7 +127,6 @@ ul{
     margin: 0%;
     text-align: center;
 }
-
 
 .btn_alterar{
     display: flex;
@@ -142,7 +138,6 @@ ul{
     width: 50px;
     font-size: 10px;
     background-color:#007bff;   
-    
 }
 
 .pop_up{
@@ -166,7 +161,6 @@ ul{
     text-align: center;
 }
 .btn_fechar{
-    
     color: #aaa;
     float: right;
     font-size: 28px;
