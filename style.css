@@ -12,7 +12,7 @@ body {
 }
 /* Estilo para o título */
 h1 {
-    padding-top: 250px;
+    padding-top: 15%;
     display: flex;
     justify-content: center;
     color: #333;
