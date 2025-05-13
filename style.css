@@ -8,6 +8,7 @@ body {
     background-image: url('palusa.png');
     background-repeat: no-repeat;
     background-position: center;
+    background-size: 50%;
     height: 15vw;
 }
 /* Estilo para o título */
