@@ -1,16 +1,18 @@
-/* Estilo para o HTML. */
-html {
-    background-color: #627dff76;
-}
 
 /* Estilo para o BODY. */
-body {
-    background-image: url('palusa.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 50%;
-    height: 15vw;
+html {
+    background: linear-gradient(to bottom, rgb(0, 0, 255), rgb(255, 255, 255));
 }
+body {
+    background-image: url("images/palusa.png");
+    background-position-x: center;
+    background-position-y: top;
+    background-size: 55%;
+    background-repeat: no-repeat;
+    padding: 2%;
+}
+
+
 /* Estilo para o título */
 h1 {
     padding-top: 15%;
@@ -25,7 +27,7 @@ h1 {
 .pesquisar_item {
     display: flex;
     justify-content: center;
-    padding: 0.1% 5% 1% 5%;
+    padding: 0.1% 0% 1% 0%;
 }
 
 /* Estilo do botão de filtrar items. */
@@ -34,11 +36,11 @@ h1 {
     padding: 0.5%;
     box-sizing: border-box;
     text-align: center;
+    font-weight: bold;
     border-radius: 20px;
-    border: 1px solid rgb(255, 255, 255);
-
+    border: 2px solid rgb(255, 255, 255);
     background-color: #007bff;
-    color: white;
+    color: rgb(0, 0, 0);
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -46,19 +48,21 @@ h1 {
 /* Estilo para o input de busca de items. */
 #input-pesquisa {
     text-align: center;
+    font-weight: bold;
     width: 100%;
     box-sizing: border-box;
     padding: 0.5%;
     border-radius: 20px;
-    border: 1px solid rgb(255, 255, 255);
-    background-color: rgba(255, 255, 255, 0.618);;
+    border: 2px solid rgb(255, 255, 255);
+    background-color: rgba(229, 229, 229, 1);
 }
 
 /* Estilo da div do botão de adicionar items. */
 .btn_add{
     text-align: center;
     justify-content: center;  
-    padding: 0.1% 5%;
+    padding: 0.5% 0%;
+  
 }
 
 /* Estilo do botão de adicionar items. */
@@ -67,11 +71,11 @@ h1 {
     box-sizing: border-box;
     padding: 1%;
     background-color: #007bff;
-    color: white;
+    color: rgb(255, 255, 255);
     cursor: pointer;
     transition: background-color 0.3s ease;
     border-radius: 20px;
-    border: 1px solid rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
     font-size: 20px;
 }
 
@@ -83,17 +87,23 @@ button:hover {
 
 /* Estilo para a div da tabela. */
 .tabela {   
-    width: 90%;
-    margin: 0% 5%;
-    border: 3px solid rgb(255, 255, 255);
+    width: 100%;
+    border: 3px solid rgb(0, 0, 0);
     border-radius: 20px;
     box-sizing: border-box;
-    padding: 1% 5%;
+    padding: 1% 0%;
     border-collapse: collapse;
-    background-color: rgba(187, 191, 247, 0.7);
+    background-color: rgb(232, 232, 232);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    
 }
+
+.linha:nth-child(even) {
+    background-color: rgb(255, 255, 255);
+    width: 100%;    
+}
+
+
+
 
 /* Estilo para o conteúdo da tabela. */
 .tabela_conteudo{
@@ -104,11 +114,12 @@ button:hover {
 a{
     display: grid;
     grid-template-columns: repeat(7, 1fr);
+    align-items: center;
+    
 }
 
 ul{
     padding: 0%;
-    margin: 0%;
     text-align: center;
     white-space: nowrap;
     overflow-x: hidden;
@@ -118,15 +129,23 @@ ul{
 
 .tabela_cabecalho{
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    margin: 0%;
-    border: 0%;   
+    grid-template-columns: repeat(7, 1fr);  
 }
 
 .tabela-container_titulo{
     padding: 0%;
     margin: 0%;
+   
     text-align: center;
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 7px;
+    }
 }
 
 .btn_alterar{
@@ -134,11 +153,12 @@ ul{
     align-items: center;
     justify-content: center;
     margin: 10px;
-    padding: 10px;
+    padding: 15px;
     height: 10px;
     width: 50px;
     font-size: 10px;
-    background-color:#007bff;   
+    background-color:#ffffff;   
+    border-radius: 10px;
 }
 
 .pop_up{
@@ -161,9 +181,10 @@ ul{
     width: 55%;
     text-align: center;
 }
+
 .btn_fechar{
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
-  }
+}
