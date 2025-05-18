@@ -19,12 +19,18 @@ function filtrar() {
   });
 }
 
+let listenerAdicionado = false;
+
 window.adicionar_item = async function () {
+  if (listenerAdicionado) return;
+  listenerAdicionado = true;
 
   document.getElementById('formCadastro').addEventListener('submit', async function (event) {
     event.preventDefault(); // Impede o reload
+
     const btn_adicionar_pop = document.getElementById('btn_adicionar_pop');
     btn_adicionar_pop.style.visibility = 'hidden';
+
     const codigo = document.getElementById("codigo").value;
     const descricao = document.getElementById("descricao").value;
     const marca = document.getElementById("marca").value;
@@ -36,15 +42,14 @@ window.adicionar_item = async function () {
     if (isNaN(quant_int)) {
       btn_adicionar_pop.style.visibility = 'visible';
       alert('Essa quantidade não é válida');
-      return; // Interrompe o envio se quantidade inválida
-      
+      return; // <- IMPORTANTE: para aqui se inválido
     }
 
     const novoProduto = {
       codigo,
       descricao,
       marca,
-      quantidade, // usa o valor convertido
+      quantidade, // Corrigido para garantir que é número
       local
     };
 
@@ -62,19 +67,18 @@ window.adicionar_item = async function () {
       }
 
       alert('Produto cadastrado com sucesso!');
-      document.getElementById('formCadastro').reset();
       document.getElementById('pop_up').style.display = 'none';
-      btn_adicionar_pop.style.visibility = 'visible';
-
-      // Atualiza a lista
-      carregarProdutos();
+      carregarProdutos(); // Atualiza a lista
 
     } catch (erro) {
       console.error('Erro ao enviar produto:', erro);
       alert('Erro ao salvar produto. Veja o console.');
+    } finally {
+      btn_adicionar_pop.style.visibility = 'visible';
     }
   });
-}
+};
+
  
 
 
