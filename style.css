@@ -1,45 +1,51 @@
 
 /* Estilo para o BODY. */
-html {
+.main_html {
     background: linear-gradient(to bottom, rgb(0, 0, 255), rgb(255, 255, 255));
+    height: auto;
 }
-body {
+.main_body {
+    padding: 1%;
+    margin: 0%;
     background-image: url("images/palusa.png");
     background-position-x: center;
     background-position-y: top;
     background-size: 55%;
     background-repeat: no-repeat;
-    padding: 2%;
 }
 
 
 /* Estilo para o título */
 h1 {
-    padding-top: 15%;
     display: flex;
     justify-content: center;
-    color: #333;
+    color: transparent;
     font-size: 24px;
     margin: 1%;
-}
+    margin-top: 15%;
+  
+  
 
+}
 /* Estilo da div do botão de filtrar items e do input de busca de items. */
 .pesquisar_item {
+    width: 100%;
     display: flex;
     justify-content: center;
-    padding: 0.1% 0% 1% 0%;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
 }
 
 /* Estilo do botão de filtrar items. */
 .btn_filtrar {
     width: 15%;
-    padding: 0.5%;
+    padding: 0.7%;
     box-sizing: border-box;
     text-align: center;
     font-weight: bold;
     border-radius: 20px;
-    border: 2px solid rgb(255, 255, 255);
-    background-color: #007bff;
+    border: 2px solid rgb(0, 0, 0);
+    background-color: #ffffff;
     color: rgb(0, 0, 0);
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -49,34 +55,33 @@ h1 {
 #input-pesquisa {
     text-align: center;
     font-weight: bold;
-    width: 100%;
+    width: 85%;
     box-sizing: border-box;
-    padding: 0.5%;
+    padding: 0.7%;
     border-radius: 20px;
-    border: 2px solid rgb(255, 255, 255);
+    border: 2px solid rgb(0, 0, 0);
     background-color: rgba(229, 229, 229, 1);
 }
 
 /* Estilo da div do botão de adicionar items. */
 .btn_add{
+    width: 100%;
     text-align: center;
     justify-content: center;  
-    padding: 0.5% 0%;
-  
 }
 
 /* Estilo do botão de adicionar items. */
-.btn_adicionar {
+.btn_adicionar {    
     width: 100%;
-    box-sizing: border-box;
     padding: 1%;
-    background-color: #007bff;
-    color: rgb(255, 255, 255);
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
     cursor: pointer;
     transition: background-color 0.3s ease;
     border-radius: 20px;
-    border: 2px solid rgb(255, 255, 255);
+    border: 2px solid rgb(0, 0, 0);
     font-size: 20px;
+    font-weight: bold;
 }
 
 /* Estilo para o hover do mouse em botões. */
@@ -87,14 +92,15 @@ button:hover {
 
 /* Estilo para a div da tabela. */
 .tabela {   
-    width: 100%;
-    border: 3px solid rgb(0, 0, 0);
+    width: 99.8%;
+    height: 100%;
+    border: 2px solid rgb(0, 0, 0);
     border-radius: 20px;
-    box-sizing: border-box;
-    padding: 1% 0%;
     border-collapse: collapse;
     background-color: rgb(232, 232, 232);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 0%;
+    margin: 0%;
 }
 
 .linha:nth-child(even) {
@@ -103,62 +109,104 @@ button:hover {
 }
 
 
-
-
 /* Estilo para o conteúdo da tabela. */
 .tabela_conteudo{
     width: 100%;
-    padding: 5%;
+    padding: 0%;
 }
 
 a{
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    align-items: center;
-    
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    align-items: center; 
+    margin: 0%;
+    padding: 0%;
 }
 
+
 ul{
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid black;
     padding: 0%;
     text-align: center;
-    white-space: nowrap;
-    overflow-x: hidden;
-    text-overflow: ellipsis;
+    height: 100%;
+    margin: 0%;
+    font-size: 20px;
+    flex: 0 0 150px;  
+    white-space: normal;    
+    word-break: break-word;   
+    overflow-wrap: break-word; 
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.linha {
+    border-top: 1px solid black;
+    padding: 0%;
+    margin: 0%;
 }
 
 
 .tabela_cabecalho{
     display: grid;
-    grid-template-columns: repeat(7, 1fr);  
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: repeat(7, minmax(0, 1fr));  
+    padding: 0%;
+    background-color: #b6b6b6;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    color: rgb(0, 0, 0);
+    margin-bottom: 0%;
+    border: 1px solid black;
 }
 
 .tabela-container_titulo{
+    display: flex;
     padding: 0%;
     margin: 0%;
-   
+    justify-content: center;
     text-align: center;
-    white-space: nowrap;
-    overflow-x: hidden;
-    text-overflow: ellipsis;
+    align-items: center;
+    border-right: 1px solid black;
+    font-size: 25px;
+    flex: 0 0 150px;
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 10%;
+    padding-bottom: 10%;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1500px) {
     body {
-        font-size: 7px;
+        margin: 0%;
+        padding: 4%;
+        width: 300%;
+    }
+
+    .tabela {
+        width: 99.6%;
     }
 }
+
 
 .btn_alterar{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 10px;
+    margin: 5%;
     padding: 15px;
-    height: 10px;
-    width: 50px;
+    height: 50%;
+    width: 91%;
     font-size: 10px;
     background-color:#ffffff;   
     border-radius: 10px;
+    font-size: 20px;
 }
 
 .pop_up{
@@ -187,4 +235,65 @@ ul{
     float: right;
     font-size: 28px;
     font-weight: bold;
+}
+
+
+
+
+
+
+
+.login_html {
+    background: linear-gradient(to bottom, rgb(0, 0, 255), rgb(255, 255, 255));
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.login_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    background: linear-gradient(to bottom, rgba(0, 0, 255, 0.3), rgba(255, 255, 255, 0.3));
+    border-radius: 30px;
+    padding-top: 30%;
+    padding-bottom: 30%;
+}
+
+.username_input {
+    width: 80%;
+    height: 30px;
+    border-radius: 20px;
+    background-color: #b6d5f7;
+}
+
+.password_input {
+    width: 80%;
+    height: 30px;
+    border-radius: 20px;
+    background-color: #b6d5f7;
+}
+
+.submit_button {
+    margin-top: 20%;
+    border-radius: 20px;
+    background-color: #b6d5f7;
+    width: 50%;
+    height: 50px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.username_label {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.password_label {
+    font-weight: bold;
+    font-size: 30px;
 }
